@@ -27,7 +27,7 @@ def main():
             "z": st.slider("Redshift (z)", 0.0, 10.0, 0.0, 0.1)
         }
         
-        vary_param = st.selectbox("Vary Parameter", ["sigma8", "Om", "Ob", "h", "ns", "w0", "wa"])
+        vary_param = st.selectbox("Vary Parameter", ["sigma8", "Om", "Ob", "h", "ns", "mnu", "w0", "wa"],index=2)
         interpolation = st.selectbox("Interpolation", 
                                    ["linear", "spline", "hv", "vh"],
                                    index=1)
@@ -41,8 +41,8 @@ def main():
     
     # Generate parameter range for varied parameter
     param_ranges = {
-        "sigma8": (0.7, 0.9), "Om": (0.2, 0.7), "Ob": (0.01, 0.1), "h": (0.5, 0.8),
-        "ns": (0.9, 1.1), "w0": (-1.5, 0.5), "wa": (-0.5, 0.5)
+        "sigma8": (0.75, 0.85), "Om": (0.2, 0.7), "Ob": (0.01, 0.1), "h": (0.5, 0.8),
+        "ns": (0.9, 1.1), "mnu":(0, 0.3), "w0": (-1.5, 0.5), "wa": (-0.5, 0.5)
     }
     param_vals = np.linspace(*param_ranges[vary_param], 5)
     
